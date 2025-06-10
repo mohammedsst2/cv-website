@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohammed Anwar - CV</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+            --accent-color: #e74c3c;
+            --dark-color: #2c3e50;
+            --light-color: #ecf0f1;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .language-selector {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            border-radius: 0 0 20px 20px;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary-color);
+        }
+        
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card-header {
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 10px 10px 0 0 !important;
+        }
+        
+        .skill-badge {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            padding: 5px 10px;
+            border-radius: 20px;
+            margin: 5px;
+            display: inline-block;
+            font-size: 0.9rem;
+        }
+        
+        .contact-info {
+            background: linear-gradient(135deg, var(--dark-color), #34495e);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            margin-right: 10px;
+            color: var(--secondary-color);
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .language-content {
+            display: none;
+        }
+        
+        .language-content.active {
+            display: block;
+        }
+        
+        @media (max-width: 768px) {
+            .profile-img {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .language-selector {
+                top: 10px;
+                right: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <div class="btn-group">
+            <button class="btn btn-sm btn-primary language-btn" data-lang="en">EN</button>
+            <button class="btn btn-sm btn-secondary language-btn" data-lang="ku">KU</button>
+            <button class="btn btn-sm btn-success language-btn" data-lang="fa">FA</button>
+            <button class="btn btn-sm btn-warning language-btn" data-lang="ar">AR</button>
+        </div>
+    </div>
+
+    <!-- Header Section -->
+    <header class="header text-center">
+        <div class="container">
+            <img src="./WhatsApp Image 2025-04-08 at 14.40.08_b7341a90.png" alt="Profile Photo" class="profile-img rounded-circle mb-3">
+            
+            <!-- English Content -->
+            <div class="language-content active" id="en-header">
+                <h1>Mohammed Anwar</h1>
+                <p class="lead">Computer Engineering</p>
+            </div>
+            
+            <!-- Kurdish Content -->
+            <div class="language-content" id="ku-header">
+                <h1>مەحەمەد ئەنوەر عوسمان</h1>
+                <p class="lead">خوێندکاری ئەندازیاری کۆمپیوتەر</p>
+            </div>
+            
+            <!-- Persian Content -->
+            <div class="language-content" id="fa-header">
+                <h1>محمد انور عثمان</h1>
+                <p class="lead">دانشجوی مهندسی کامپیوتر</p>
+            </div>
+            
+            <!-- Arabic Content -->
+            <div class="language-content" id="ar-header">
+                <h1>محمد أنور عثمان</h1>
+                <p class="lead">طالب هندسة حاسوب</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <!-- Left Column -->
+            <div class="col-lg-4">
+                <!-- About Me -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h3 class="m-0" data-translate="about">About Me</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="language-content active" id="en-about">
+                            <p>Hi, I'm Mohammed, A Computer Engineering Student.</p>
+                        </div>
+                        <div class="language-content" id="ku-about">
+                            <p>سڵاو، من مەحەمەدم، خوێندکاری ئەندازیاری کۆمپیوتەرم.</p>
+                        </div>
+                        <div class="language-content" id="fa-about">
+                            <p>سلام، من محمد هستم، دانشجوی مهندسی کامپیوتر.</p>
+                        </div>
+                        <div class="language-content" id="ar-about">
+                            <p>مرحبًا، أنا محمد، طالب هندسة حاسوب.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Personal Info -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h3 class="m-0" data-translate="personal">Personal Information</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong data-translate="dob">Date of birth:</strong> 23/06/2002</p>
+                        <p><strong data-translate="pob">Place of birth:</strong> Erbil, Iraq</p>
+                        <p><strong data-translate="nationality">Nationality:</strong> Iraqi</p>
+                        <p><strong data-translate="gender">Gender:</strong> Male</p>
+                    </div>
+                </div>
+                
+                <!-- Language Skills -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h3 class="m-0" data-translate="languages">Language Skills</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong data-translate="mother">Mother tongue:</strong> <span data-translate="kurdish">Kurdish</span></p>
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th data-translate="understanding">Understanding</th>
+                                    <th data-translate="speaking">Speaking</th>
+                                    <th data-translate="writing">Writing</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Persian</strong></td>
+                                    <td>C2</td>
+                                    <td>C2</td>
+                                    <td>C2</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Arabic</strong></td>
+                                    <td>C1</td>
+                                    <td>B2</td>
+                                    <td>B2</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>English</strong></td>
+                                    <td>A2</td>
+                                    <td>A2</td>
+                                    <td>A2</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Column -->
+            <div class="col-lg-8">
+                <!-- Work Experience -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h3 class="m-0" data-translate="experience">Work Experience</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <h5 data-translate="farmer">Mixed Farmer</h5>
+                        </div>
+                        <div class="mb-3">
+                            <h5 data-translate="translator">Business Translator</h5>
+                        </div>
+                        <div class="mb-3">
+                            <h5 data-translate="estate">Real Estate Sales Agent</h5>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Skills -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h3 class="m-0" data-translate="skills">Skills</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <h5 data-translate="programming">Programming & Technologies</h5>
+                            <span class="skill-badge">Python</span>
+                            <span class="skill-badge">Pandas</span>
+                            <span class="skill-badge">NumPy</span>
+                            <span class="skill-badge">Matplotlib</span>
+                            <span class="skill-badge">HTML</span>
+                            <span class="skill-badge">CSS</span>
+                            <span class="skill-badge">JavaScript</span>
+                            <span class="skill-badge">Bootstrap</span>
+                        </div>
+                        <div class="mb-3">
+                            <h5 data-translate="other">Other Skills</h5>
+                            <span class="skill-badge" data-translate="networking">Basic Networking</span>
+                            <span class="skill-badge" data-translate="translation">Translation</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Info -->
+                <div class="contact-info mb-4">
+                    <h3 class="text-center mb-4" data-translate="contact">Contact Information</h3>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <p><i class="fas fa-phone contact-icon"></i> (+964) 07517069702</p>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <p><i class="fas fa-envelope contact-icon"></i> mohammedanwarothman@gmail.com</p>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <p><i class="fab fa-instagram contact-icon"></i> 
+                                <a href="https://www.instagram.com/mohammed_anwar_othman?igsh=a2B4bTNuOW81NWFs" target="_blank" class="text-white">
+                                    mohammed_anwar_othman
+                                </a>
+                            </p>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <p><i class="fab fa-whatsapp contact-icon"></i> +9647517069702</p>
+                        </div>
+                        <div class="col-12">
+                            <p><i class="fas fa-map-marker-alt contact-icon"></i> Erbil, Iraq.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Language switching functionality
+            const languageBtns = document.querySelectorAll('.language-btn');
+            
+            languageBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    
+                    // Hide all language contents
+                    document.querySelectorAll('.language-content').forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    
+                    // Show selected language content
+                    document.querySelectorAll(`.language-content[id$="-${lang}"]`).forEach(content => {
+                        content.classList.add('active');
+                    });
+                    
+                    // Update active button
+                    languageBtns.forEach(btn => {
+                        btn.classList.remove('btn-primary');
+                        btn.classList.add('btn-secondary');
+                    });
+                    this.classList.remove('btn-secondary');
+                    this.classList.add('btn-primary');
+                });
+            });
+            
+            // Translation data
+            const translations = {
+                'en': {
+                    'about': 'About Me',
+                    'personal': 'Personal Information',
+                    'dob': 'Date of birth',
+                    'pob': 'Place of birth',
+                    'nationality': 'Nationality',
+                    'gender': 'Gender',
+                    'languages': 'Language Skills',
+                    'mother': 'Mother tongue',
+                    'kurdish': 'Kurdish',
+                    'understanding': 'Understanding',
+                    'speaking': 'Speaking',
+                    'writing': 'Writing',
+                    'levels': 'Levels: A1 and A2: Basic user; B1 and B2: Independent user; C1 and C2: Proficient user',
+                    'experience': 'Work Experience',
+                    'farmer': 'Mixed Farmer',
+                    'translator': 'Business Translator',
+                    'estate': 'Real Estate Sales Agent',
+                    'skills': 'Skills',
+                    'programming': 'Programming & Technologies',
+                    'other': 'Other Skills',
+                    'networking': 'Basic Networking',
+                    'translation': 'Translation',
+                    'contact': 'Contact Information',
+                    'rights': 'All rights reserved.'
+                },
+                'ku': {
+                    'about': 'دەربارەی من',
+                    'personal': 'زانیاری کەسی',
+                    'dob': 'بەرواری لەدایکبوون',
+                    'pob': 'شوێنی لەدایکبوون',
+                    'nationality': 'نەتەوە',
+                    'gender': 'رەگەز',
+                    'languages': 'توانایی زمان',
+                    'mother': 'زمانی دایک',
+                    'kurdish': 'کوردی',
+                    'understanding': 'تێگەیشتن',
+                    'speaking': 'قسەکردن',
+                    'writing': 'نووسین',
+                    'experience': 'ئەزموونی کار',
+                    'farmer': 'کشتوکاڵی تێکەڵ',
+                    'translator': 'وەرگێڕی بازرگانی',
+                    'estate': 'دەلالی فرۆشی خانووبەرە',
+                    'skills': 'تواناییەکان',
+                    'programming': 'پرۆگرامسازی و تەکنەلۆژیا',
+                    'other': 'تواناییەکانی تر',
+                    'networking': 'بنچینەکانی نێتۆرک',
+                    'translation': 'وەرگێڕان',
+                    'contact': 'زانیاری پەیوەندی',
+                },
+                'fa': {
+                    'about': 'درباره من',
+                    'personal': 'اطلاعات شخصی',
+                    'dob': 'تاریخ تولد',
+                    'pob': 'محل تولد',
+                    'nationality': 'ملیت',
+                    'gender': 'جنسیت',
+                    'languages': 'مهارت های زبانی',
+                    'mother': 'زبان مادری',
+                    'kurdish': 'کردی',
+                    'understanding': 'درک',
+                    'speaking': 'صحبت کردن',
+                    'writing': 'نوشتن',
+                    'experience': 'سابقه کار',
+                    'farmer': 'کشاورز مختلط',
+                    'translator': 'مترجم تجاری',
+                    'estate': 'مشاور املاک',
+                    'skills': 'مهارت ها',
+                    'programming': 'برنامه نویسی و فناوری ها',
+                    'other': 'سایر مهارت ها',
+                    'networking': 'شبکه مقدماتی',
+                    'translation': 'ترجمه',
+                    'contact': 'اطلاعات تماس',
+                },
+                'ar': {
+                    'about': 'معلومات عني',
+                    'personal': 'المعلومات الشخصية',
+                    'dob': 'تاريخ الميلاد',
+                    'pob': 'مكان الميلاد',
+                    'nationality': 'الجنسية',
+                    'gender': 'الجنس',
+                    'languages': 'المهارات اللغوية',
+                    'mother': 'اللغة الأم',
+                    'kurdish': 'الكردية',
+                    'understanding': 'الفهم',
+                    'speaking': 'التحدث',
+                    'writing': 'الكتابة',
+                    'experience': 'الخبرة العملية',
+                    'farmer': 'مزارع مختلط',
+                    'translator': 'مترجم أعمال',
+                    'estate': 'وسيط عقارات',
+                    'skills': 'المهارات',
+                    'programming': 'البرمجة والتقنيات',
+                    'other': 'مهارات أخرى',
+                    'networking': 'شبكات أساسية',
+                    'translation': 'ترجمة',
+                    'contact': 'معلومات الاتصال',
+                }
+            };
+            
+            // Function to update translations
+            function updateTranslations(lang) {
+                const elements = document.querySelectorAll('[data-translate]');
+                elements.forEach(el => {
+                    const key = el.getAttribute('data-translate');
+                    if (translations[lang] && translations[lang][key]) {
+                        el.textContent = translations[lang][key];
+                    }
+                });
+            }
+            
+            // Add event listener to language buttons for translations
+            languageBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    updateTranslations(lang);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
